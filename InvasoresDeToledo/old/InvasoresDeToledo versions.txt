@@ -1,0 +1,26 @@
+
+v1.0:
+- El juego esta creado con Arrays normales
+	FALTA:
+		- Se puedas crear los cohetes que quiera
+		- Se detecten colisiones entre cohetes y enemigos
+
+	
+v2.0:
+- Modificacion del juego para que pueda utilizar ARRAYLIST
+  y pueda crear tantos cohetes como quiera
+	FALTA:
+		- Se puedan detectar collisiones entre ellos
+	
+
+v3.0 FINAL:
+- PRIMERA VERSION JUGABLE DEL JUEGO
+- ya reconoce los enemigos y si has perdido o has ganado
+- se crean enemigos aleatoriamente
+	FALTA:
+		- Objetos no bajan a VELOCIDAD CONSTANTE.
+		- Agrupar todos los objetos de tipo spacial en una clase abstracta para manejarlos mejor
+	
+	
+v4.0:
+- Declaro una clase Abstracta "SpaceObject" de la que voy a crear todos mis objetos que se mueven.
