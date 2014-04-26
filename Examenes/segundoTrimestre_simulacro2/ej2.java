@@ -1,4 +1,4 @@
-package Examenes.simulacro2;
+
 
 public class ej2 {
 	

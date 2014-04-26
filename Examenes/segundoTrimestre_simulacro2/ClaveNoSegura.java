@@ -1,4 +1,4 @@
-package Examenes.simulacro2;
+
 
 import java.util.Arrays;
 

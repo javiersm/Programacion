@@ -1,4 +1,4 @@
-package Examenes.simulacro1;
+
 
 import java.util.Scanner;
 
