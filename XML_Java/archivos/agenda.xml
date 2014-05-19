@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contactos>
+	<contacto>
+	  <nombre>Juan</nombre>
+	  <email>699111111@aa.com</email>
+	</contacto>
+	<contacto>
+	  <nombre>Maria</nombre>
+	  <email>699222222@bb.com</email>
+	</contacto>
+	<contacto>
+	  <nombre>Juan</nombre>
+	  <email>699333333@clase.com</email>
+	</contacto>
+	
+	<contacto>
+	  <nombre>Fran</nombre>
+	  <email>699444444@clase.com</email>
+	</contacto>
+	<contacto>
+	  <nombre>Ana</nombre>
+	  <email>699555555@kkk.com</email>
+	</contacto>
+	<contacto>
+	  <nombre>Sara</nombre>
+	  <email>699666666@zzz.com</email>
+	</contacto>
+</contactos>
