@@ -10,16 +10,11 @@
  * @author JS
  * 
  */
+
+/*
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-
-import org.htmlcleaner.CleanerProperties;
-import org.htmlcleaner.HtmlCleaner;
-import org.htmlcleaner.PrettyXmlSerializer;
-import org.htmlcleaner.TagNode;
-import org.htmlcleaner.XPatherException;
 
 public class E06Palabras {
 
@@ -48,4 +43,4 @@ tagNode.evaluateXPath("/html/body/center/font[1]/font/strong/text()");
 
 }
 
-}
+}*/
