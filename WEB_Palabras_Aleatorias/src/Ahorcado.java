@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class Ahorcado {
 
-	private static ArrayList<Character> palabraGuiones = new ArrayList<Character>();
-	private static ArrayList<Character> letrasUsadas = new ArrayList<Character>();
 	private static ArrayList<Character> palabra = new ArrayList<Character>();
-	
-	private static String palabraActual = "";
+	private static ArrayList<Character> palabraGuiones = new ArrayList<Character>();
+
+	//private static String palabraActual = "";
 	private static int intentosRestantes = 6;
 	private static boolean hasGanado = false;
 	private static Scanner teclado = new Scanner(System.in);
@@ -19,6 +18,13 @@ public class Ahorcado {
 		for(Character c: palabra)
 			System.out.print(" _");
 	}
+	
+	private static void pintaPalabraGuiones(){
+		System.out.println();
+		for(Character c: palabraGuiones)
+			System.out.print(c +" ");
+	}
+	
 	
 	public static String soloCaracteresNormales(String palabra) {
 			// Cadena de caracteres original a sustituir.
@@ -31,12 +37,12 @@ public class Ahorcado {
 			output = output.replace(original.charAt(i), ascii.charAt(i));
 			}
 			return output;
-		}
+	}
 	
 	
 	
 	private static void getNewPalabra(){
-		palabraActual = Palabras.palabra(); //coge una palabra nueva
+		String palabraActual = Palabras.palabra(); //coge una palabra nueva
 		palabraActual = palabraActual.toLowerCase();
 		palabraActual = soloCaracteresNormales(palabraActual);
 		
@@ -50,26 +56,34 @@ public class Ahorcado {
 	}
 	
 	
-	private static void introduceLetra(){
-		System.out.println("Introduce una letra: ");
-		letrasUsadas.add(teclado.next().charAt(0));
-		
-		//compruebo si las letras de la palabra estan todas en el arraylist de letras usadas
-	}
+
 	
-	private static void compruebaAciertos(){
+	/** Aqui hago la comprobación de los aciertos.
+	 *  Le paso una letra y va mirando si existe en el array.
+	 * 
+	 * @param letra
+	 */
+	private static void compruebaAciertos(Character letra)
+	{
+		boolean hasAcertado = false;
 		int aciertos = 0;
-		for(int i=0; i<letrasUsadas.size();i++){
-			if(palabra.contains(letrasUsadas.get(i))){
-				System.out.println("contiene la: " + letrasUsadas.get(i));
+		
+		for(int i=0; i<palabra.size();i++){
+			if(palabra.contains(letra)){
+				palabraGuiones.set(i, letra);
 				aciertos++;
+				hasAcertado = true;
 			}
+		}		
+		
+		if(!hasAcertado){
+			intentosRestantes--;
+			System.out.println("La letra " + letra +" no está.");
+		}else{
+			System.out.println("contiene "+ aciertos + " letras de : " + letra );
 		}
-		System.out.println("has acertado " + aciertos + " letras");
-		if(aciertos == palabra.size()){
-			System.out.println(" ***/** /* /* /  HASSSS GANADOOOOOO  /* /* / /* */ */ ");
-			hasGanado=true;
-		}			
+		
+		pintaPalabraGuiones();
 	}
 	
 	
@@ -77,21 +91,28 @@ public class Ahorcado {
 
 
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) 
+	{	
 		System.out.println("* * * Ahorcado version 1.0 * * *\n");
+		char letra = ' ';
+		
 		do{
 			getNewPalabra();
 			do{
-				introduceLetra();
-				compruebaAciertos();
-				intentosRestantes--;
+				System.out.println("Introduce una letra: ");
+				letra = teclado.next().charAt(0);
+				compruebaAciertos(letra);
 			}while(intentosRestantes>0 && !hasGanado);
 			
 		}while(intentosRestantes>0 && !hasGanado);
 		
 		
+		System.out.println("FIN");
+		
 		
 	}
-
+	
 }
+
+
+
