@@ -122,7 +122,7 @@ public class Proyecto {
 			   }
 	   }
 	   
-	   /** Aqui le paso un Documento y una consulta en XPath
+	   /** Aqui le paso un Documento  y una consulta en XPath para que la ejecute y me devuelva un NODO. 
 	    * 
 	    * @param doc
 	    * @param xpath
@@ -144,23 +144,24 @@ public class Proyecto {
 	   }
 	
 	   
+
 	   private static String limpiarEntidades(String origen)
 	   {
           return StringEscapeUtils.unescapeHtml4(origen);
 	   }
 	   
-	   /*
-	   private static void pintaNodeList(NodeList nod){
-		   for(NodeList n: nod)
-		   System.out.println();
-	   }*/
-	   
 	   
 	   
 	   public static void main(String[] args) throws UnsupportedEncodingException, FileNotFoundException, InterruptedException{
-		   String archivoPrecioXsl="archivos/htmlproyecto/indexPrecio.xsl";
+		   String archivoPrecioXsl="archivos/htmlproyecto/indexPrecio.xsl"; 
 		   String archivoResultado="archivos/htmlproyecto/Resultado3.html";
 		  
+		   
+		   
+		   
+		   /**
+		    *  web GENBETA.COM
+		    */
 		   Document docGenBeta =  abrirSitio("http://www.genbeta.com/"); 
 		   		   
 		   NodeList nodo1Titulo=evaluarXPath(docGenBeta,"//*[@class='section section-articles']//h2/a/text()");
@@ -182,7 +183,7 @@ public class Proyecto {
 		   Element raiz = (Element)docXML.createElement("noticias"); 
 		   docXML.appendChild(raiz);
 			    
-		   System.out.println("x aki pasa y tiene "+ nodo1Titulo.getLength()+ " titulares");
+		   //System.out.println("x aki pasa y tiene "+ nodo1Titulo.getLength()+ " titulares");
 		   for(int i=0;i<nodo1Titulo.getLength();i++)
 		   {   
 			   Node pagina1 = docXML.createElement("noticia");
@@ -225,7 +226,8 @@ public class Proyecto {
 		   }
 		   
 		   
-		   /**
+		   /**		GENBETADEV.COM
+		    * 
 		    * Aquí abro otro sitio web. En este caso caso declaro otras variables pero podria
 		    * haber reutilizado las de la página anterior.
 		    */
@@ -278,6 +280,8 @@ public class Proyecto {
 		
 			   raiz.appendChild(pagina2);
 		   }
+		   
+		   
 		   
 		   /**
 		    *    XATAKA.COM
@@ -392,6 +396,6 @@ public class Proyecto {
 		   
 		   
 		   guardarArchivoUsandoXSLT(docXML,archivoPrecioXsl,archivoResultado);
-		   System.out.println("finalizado se supone...");   
+		   System.out.println("finalizado......");   
 	   }
 }
