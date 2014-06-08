@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -47,11 +48,13 @@ public class Ahorcado {
 		palabraActual = soloCaracteresNormales(palabraActual);
 		
 		char[] chars = palabraActual.toCharArray();		
+		System.out.print("La palabra que tienes que adivinar es:   ");
 		for(Character c: chars){
 			System.out.print(" " + c);
 			palabra.add(c);
 			palabraGuiones.add('_');
 		}
+		System.out.println("\n\n");
 		pintaPalabra();
 	}
 	
@@ -68,19 +71,23 @@ public class Ahorcado {
 		boolean hasAcertado = false;
 		int aciertos = 0;
 		
+		
 		for(int i=0; i<palabra.size();i++){
-			if(palabra.contains(letra)){
+			if(palabra.get(i).equals(letra)){
 				palabraGuiones.set(i, letra);
 				aciertos++;
 				hasAcertado = true;
 			}
-		}		
+		}
+		
+		if(palabra.equals(palabraGuiones))
+			hasGanado = true;
 		
 		if(!hasAcertado){
 			intentosRestantes--;
-			System.out.println("La letra " + letra +" no está.");
+			System.out.println("La letra " + letra +" no está. Te quedan "+ intentosRestantes +" intentos.");
 		}else{
-			System.out.println("contiene "+ aciertos + " letras de : " + letra );
+			System.out.println("\nCorrecto!   contiene "+ aciertos + " letras de " + letra );
 		}
 		
 		pintaPalabraGuiones();
@@ -99,7 +106,7 @@ public class Ahorcado {
 		do{
 			getNewPalabra();
 			do{
-				System.out.println("Introduce una letra: ");
+				System.out.println("  Introduce una letra: ");
 				letra = teclado.next().charAt(0);
 				compruebaAciertos(letra);
 			}while(intentosRestantes>0 && !hasGanado);
@@ -107,7 +114,10 @@ public class Ahorcado {
 		}while(intentosRestantes>0 && !hasGanado);
 		
 		
-		System.out.println("FIN");
+		if(hasGanado)
+			System.out.println("\n\nFELICIDADES !! HAS GANADO!!");
+		else
+			System.out.println("\n\nNO HAS GANADO. PRUEBA OTRA VEZ");
 		
 		
 	}
