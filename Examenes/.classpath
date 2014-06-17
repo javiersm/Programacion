@@ -6,6 +6,7 @@
 	<classpathentry kind="src" path="segundoTrimestre_simulacro2"/>
 	<classpathentry kind="src" path="segundoTrimestre_final"/>
 	<classpathentry kind="src" path="primerTrimestre_simulacro"/>
+	<classpathentry kind="src" path="tercer_Trimestre_Final"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
